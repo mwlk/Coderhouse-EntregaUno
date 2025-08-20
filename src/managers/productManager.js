@@ -1,6 +1,7 @@
 const fs = require("fs/promises");
 const crypto = require("crypto");
 const path = require("path");
+const Product = require("../classes/product.js");
 
 class ProductManager {
   constructor(filePath) {
@@ -27,23 +28,33 @@ class ProductManager {
     }
   }
 
-  async addpProduct(product) {
+  async addProduct(productData) {
     try {
-      if (!(product instanceof Product)) {
-        throw new Error("Invalid product instance");
-      }
+      const product = new Product(productData);
+      product.validate();
 
       const products = await this.#readFile();
+
+      const existingProduct = products.find((p) => p.code === product.code);
+      if (existingProduct) {
+        throw new Error(`Ya existe un producto con el código: ${product.code}`);
+      }
+
       const newProduct = {
-        ...product,
         id: crypto.randomUUID(),
+        ...product,
       };
 
       products.push(newProduct);
       await this.#writeFile(products);
+
+      console.log(
+        `Producto agregado exitosamente: ${newProduct.title} (ID: ${newProduct.id})`
+      );
       return newProduct;
     } catch (error) {
-      console.error($`Error al agregar producto: ${error.message}`);
+      console.error(`Error al agregar producto: ${error.message}`);
+      throw error;
     }
   }
 
