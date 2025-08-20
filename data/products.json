@@ -1,3 +1,59 @@
 [
-    
+  {
+    "id": "95736de5-8ea4-4aba-a017-b5c5b5b7911c",
+    "title": "iPhone 15 Pro",
+    "description": "Smartphone Apple con chip A17 Pro y cámara de 48MP",
+    "code": "IPHONE15PRO",
+    "price": 999.99,
+    "status": true,
+    "stock": 25,
+    "category": "Smartphones",
+    "thumbnails": [
+      "iphone15_1.jpg",
+      "iphone15_2.jpg",
+      "iphone15_3.jpg"
+    ]
+  },
+  {
+    "id": "7b27d21e-3e6b-4470-b329-ce76a7102fb0",
+    "title": "iPad Pro 12.9",
+    "description": "Tablet Apple con chip M2 y pantalla Liquid Retina",
+    "code": "IPADPRO129",
+    "price": 1099.99,
+    "status": true,
+    "stock": 12,
+    "category": "Tablets",
+    "thumbnails": [
+      "ipad_pro_1.jpg",
+      "ipad_pro_2.jpg"
+    ]
+  },
+  {
+    "id": "5e688a6c-4bf6-4d73-864e-74d117fd9038",
+    "title": "Apple Watch Series 9",
+    "description": "Smartwatch con GPS y monitoreo de salud",
+    "code": "APPLEWATCHS9",
+    "price": 399.99,
+    "status": true,
+    "stock": 20,
+    "category": "Wearables",
+    "thumbnails": [
+      "apple_watch_s9.jpg"
+    ]
+  },
+  {
+    "id": "b03e86f7-4682-4c27-b24e-d72461866fc6",
+    "title": "PlayStation 5",
+    "description": "Consola de videojuegos de última generación",
+    "code": "PS5CONSOLE",
+    "price": 499.99,
+    "status": true,
+    "stock": 5,
+    "category": "Gaming",
+    "thumbnails": [
+      "ps5_1.jpg",
+      "ps5_2.jpg",
+      "ps5_3.jpg"
+    ]
+  }
 ]
