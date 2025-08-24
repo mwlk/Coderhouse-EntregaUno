@@ -82,6 +82,10 @@ class ProductManager {
 
   async updateProduct(id, updatedProduct) {
     try {
+      if (id !== updatedProduct.id && updatedProduct.id) {
+        throw new Error("El ID del producto no puede ser modificado");
+      }
+
       const products = await this.#readFile();
       const index = products.findIndex((p) => p.id === id);
       if (index === -1) {
