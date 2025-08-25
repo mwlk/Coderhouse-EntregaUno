@@ -9,7 +9,7 @@ const productManager = new ProductManager(productFilePath);
 
 router.get("/", async (_, res) => {
   try {
-    let products = await productManager.GetProducts();
+    let products = await productManager.getProducts();
 
     if (products) {
       return res.status(200).json(products);
@@ -44,7 +44,6 @@ router.get("/:pid", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const productData = req.body;
-    // console.log("Received product data:", productData);
 
     const newProduct = await productManager.addProduct(productData);
 
