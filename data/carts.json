@@ -15,5 +15,14 @@
         "quantity": 3
       }
     ]
+  },
+  {
+    "id": "e6a09fc1-35d3-4711-be1a-a2b812551549",
+    "products": [
+      {
+        "product": "a4b26fdb-e901-419e-a03e-35c70c58fa51",
+        "quantity": 2
+      }
+    ]
   }
 ]
