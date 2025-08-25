@@ -1,20 +1,5 @@
 [
   {
-    "id": "95736de5-8ea4-4aba-a017-b5c5b5b7911c",
-    "title": "iPhone 15 Pro",
-    "description": "Smartphone Apple con chip A17 Pro y cámara de 48MP",
-    "code": "IPHONE15PRO",
-    "price": 999.99,
-    "status": true,
-    "stock": 25,
-    "category": "Smartphones",
-    "thumbnails": [
-      "iphone15_1.jpg",
-      "iphone15_2.jpg",
-      "iphone15_3.jpg"
-    ]
-  },
-  {
     "id": "7b27d21e-3e6b-4470-b329-ce76a7102fb0",
     "title": "iPad Pro 12.9",
     "description": "Tablet Apple con chip M2 y pantalla Liquid Retina",
@@ -54,6 +39,20 @@
       "ps5_1.jpg",
       "ps5_2.jpg",
       "ps5_3.jpg"
+    ]
+  },
+  {
+    "id": "a4b26fdb-e901-419e-a03e-35c70c58fa51",
+    "title": "ASUS ROG Strix G15",
+    "description": "Laptop gaming con RTX 4060 y AMD Ryzen 7",
+    "code": "ASUSROG15",
+    "price": 1299.99,
+    "status": true,
+    "stock": 8,
+    "category": "Laptops",
+    "thumbnails": [
+      "asus_rog_1.jpg",
+      "asus_rog_2.jpg"
     ]
   }
 ]
