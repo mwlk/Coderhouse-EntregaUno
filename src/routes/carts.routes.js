@@ -38,7 +38,7 @@ router.get("/:cid", async (req, res) => {
     if (result) {
       return res.status(200).json({
         cartId: cid,
-        products: products,
+        products: result,
       });
     }
 

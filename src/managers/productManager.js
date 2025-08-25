@@ -90,7 +90,6 @@ class ProductManager {
       throw new Error(`Product with id ${id} not found`);
     }
 
-    // Usar underscore para descartar el id
     const { id: _, ...updateData } = updatedProduct;
 
     if (updateData.code) {
