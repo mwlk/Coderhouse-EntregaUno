@@ -58,12 +58,13 @@ class ProductManager {
     }
   }
 
-  async GetProducts() {
+  async getProducts() {
     try {
       const products = await this.#readFile();
       return products;
     } catch (error) {
       console.error("Error al obtener productos:", error);
+      throw error;
     }
   }
 
@@ -77,28 +78,40 @@ class ProductManager {
       return product;
     } catch (error) {
       console.error(`Error al obtener producto por ID: ${error.message}`);
+      throw error;
     }
   }
 
   async updateProduct(id, updatedProduct) {
-    try {
-      if (id !== updatedProduct.id && updatedProduct.id) {
-        throw new Error("El ID del producto no puede ser modificado");
-      }
-
-      const products = await this.#readFile();
-      const index = products.findIndex((p) => p.id === id);
-      if (index === -1) {
-        throw new Error(`Product with id ${id} not found`);
-      }
-
-      products[index] = { ...products[index], ...updatedProduct };
-      await this.#writeFile(products);
-      return products[index];
-    } catch (error) {
-      console.error(`Error al actualizar producto: ${error.message}`);
+  try {
+    const products = await this.#readFile();
+    const index = products.findIndex((p) => p.id === id);
+    if (index === -1) {
+      throw new Error(`Product with id ${id} not found`);
     }
+
+    // Usar underscore para descartar el id
+    const { id: _, ...updateData } = updatedProduct;
+
+    if (updateData.code) {
+      const existingProduct = products.find(
+        (p) => p.code === updateData.code && p.id !== id
+      );
+      if (existingProduct) {
+        throw new Error(
+          `Ya existe un producto con el código: ${updateData.code}`
+        );
+      }
+    }
+
+    products[index] = { ...products[index], ...updateData };
+    await this.#writeFile(products);
+    return products[index];
+  } catch (error) {
+    console.error(`Error al actualizar producto: ${error.message}`);
+    throw error;
   }
+}
 
   async deleteProduct(id) {
     try {
@@ -113,6 +126,7 @@ class ProductManager {
       return { message: `Product with id ${id} deleted successfully` };
     } catch (error) {
       console.error(`Error al eliminar producto: ${error.message}`);
+      throw error;
     }
   }
 }
